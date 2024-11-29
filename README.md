@@ -2,54 +2,121 @@
 
 ## Descrição
 
-Este é um projeto básico em Node.js utilizando o framework Hapi.js para gerenciamento de rotas e o Joi para validação de dados, construido na disciplina de Laboratório Web da Fatec Franca.
+Este é um projeto básico em Node.js utilizando o framework **Hapi.js** para gerenciamento de rotas e o **Joi** para validação de dados. Foi construído na disciplina de Laboratório Web da **Fatec Franca** como uma estrutura base para o desenvolvimento de APIs REST.
 
-Apresenta estrutura base para desenvolvimento de apis.
+O projeto implementa as APIs de **Produtos** e **Alunos**, e utiliza um banco de dados PostgreSQL local para persistência dos dados.
+
+---
 
 ## Requisitos
 
-- Node.js (versão recomendada: 14.x ou superior)
-- npm (gerenciador de pacotes do Node.js)
+- **Node.js** (versão recomendada: 14.x ou superior)
+- **npm** (gerenciador de pacotes do Node.js)
+- **PostgreSQL** (banco de dados local)
 
-## Instalação
+### Configuração do Banco de Dados
 
-1. Clone o repositório em sua máquina local:
-   ```bash
-   git clone git@github.com:fabiomedeirosf/lab-web-2024-2.git
-   ```
-2. Acesse a pasta do projeto:
-   ```bash
-   cd web2024-2
-   ```
-3. Instale as dependências do projeto:
-   ```bash
-   npm install
-   ```
+1. Instale o PostgreSQL localmente em sua máquina.
+2. Crie um banco de dados chamado `web2024`.
+3. Configure as variáveis de ambiente no arquivo `.env` na raiz do projeto:
+   ```env
+   DATABASE_HOST=localhost
+   DATABASE_PORT=5432
+   DATABASE_NAME=web2024
+   DATABASE_USER=seu_usuario
+   DATABASE_PASSWORD=sua_senha
 
-## Scripts de Inicialização
 
-- **Iniciar em Produção:**
-  Para rodar o projeto no modo de produção, execute o comando:
-  ```bash
-  npm start
-  ```
-  Isso executará o arquivo `index.js` com o comando `node index.js`.
+# Rotas da API
 
-- **Modo de Desenvolvimento:**
-  Para rodar o projeto com recarga automática no modo de desenvolvimento, use:
-  ```bash
-  npm run dev
-  ```
-  Este comando utiliza o flag `--watch` do Node.js para reiniciar automaticamente o servidor sempre que houver alterações no código.
+Este documento lista as rotas disponíveis na API de Produtos e Alunos.
 
-- **Testes:**
-- [ ] Implementar testes automatizados para endpoints principais
+---
 
-## Dependências Principais
+## Produtos
 
-- **@hapi/hapi**: Framework web para construir servidores e APIs.
-- **joi**: Biblioteca para validação de dados no Node.js.
+### Endpoints:
 
-## Licença
+- **GET /v1/produtos**
+  - Lista todos os produtos cadastrados.
+  - Parâmetros opcionais:
+    - `nome`: Filtra produtos pelo nome.
+    - `categoria`: Filtra produtos pela categoria.
 
-Este projeto está sob a licença ISC.
+- **GET /v1/produtos/{id}**
+  - Busca um produto específico pelo ID.
+
+- **POST /v1/produtos**
+  - Cria um novo produto.
+
+- **PUT /v1/produtos/{id}**
+  - Atualiza os dados de um produto existente.
+
+- **DELETE /v1/produtos/{id}**
+  - Exclui um produto pelo ID.
+
+---
+
+## Alunos
+
+### Endpoints:
+
+- **GET /v1/alunos**
+  - Lista todos os alunos cadastrados.
+  - Parâmetros opcionais:
+    - `nome`: Filtra alunos pelo nome.
+    - `idade`: Filtra alunos pela idade.
+
+- **GET /v1/alunos/{id}**
+  - Busca um aluno específico pelo ID.
+
+- **POST /v1/alunos**
+  - Cria um novo aluno.
+
+- **PUT /v1/alunos/{id}**
+  - Atualiza os dados de um aluno existente.
+
+- **DELETE /v1/alunos/{id}**
+  - Exclui um aluno pelo ID.
+
+---
+
+## Informações Gerais
+
+- Todas as rotas utilizam o padrão REST.
+- Certifique-se de que o servidor está rodando na URL base: `http://localhost:5005`.
+
+
+
+## Scripts Disponíveis
+**1. Rodar em Produção**
+Para rodar o projeto no modo de produção, execute:
+
+`npm start`
+
+Isso executará o arquivo principal do projeto (index.js) usando o comando node index.js.
+
+O servidor será iniciado na URL base configurada no projeto
+
+`http://localhost:5005`
+
+**2. Rodar em Desenvolvimento**
+Para rodar o projeto no modo de desenvolvimento com recarga automática, execute:
+
+`npm run dev`
+Esse comando utiliza ferramentas como nodemon para reiniciar o servidor automaticamente sempre que houver alterações no código.
+
+
+Teste o servidor acessando a URL no navegador ou utilizando ferramentas como **Postman**.
+
+------------
+
+### Erros Comuns
+**ERRO DE CONEXÃO COM O BANCO DE DADOS**
+
+Verifique se o PostgreSQL está rodando e configurado corretamente.
+Certifique-se de que as credenciais no arquivo .env estão corretas.
+
+**PORTA EM USO**
+
+Se a porta configurada já estiver em uso, edite a variável PORT no arquivo .env para usar uma porta diferente.
