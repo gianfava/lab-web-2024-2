@@ -31,6 +31,10 @@ O projeto implementa as APIs de **Produtos** e **Alunos**, e utiliza um banco de
 
 Este documento lista as rotas disponíveis na API de Produtos e Alunos.
 
+Link Documentação Swagger:
+
+https://app.swaggerhub.com/apis-docs/GIANFAVA_2/api-de_produtos/1.0.0
+
 ---
 
 ## Produtos
@@ -81,6 +85,11 @@ Este documento lista as rotas disponíveis na API de Produtos e Alunos.
 
 ---
 
+## Telas do POSTMAN
+
+
+
+------
 ## Informações Gerais
 
 - Todas as rotas utilizam o padrão REST.
@@ -109,7 +118,7 @@ Esse comando utiliza ferramentas como nodemon para reiniciar o servidor automati
 
 Teste o servidor acessando a URL no navegador ou utilizando ferramentas como **Postman**.
 
-------------
+------
 
 ### Erros Comuns
 **ERRO DE CONEXÃO COM O BANCO DE DADOS**
@@ -120,3 +129,4 @@ Certifique-se de que as credenciais no arquivo .env estão corretas.
 **PORTA EM USO**
 
 Se a porta configurada já estiver em uso, edite a variável PORT no arquivo .env para usar uma porta diferente.
+

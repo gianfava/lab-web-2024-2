@@ -32,8 +32,14 @@ const getProdutoById = async (request, h) => {
 
 const updateProduto = async (request, h) => {
     try {
-        await produtoBusiness.updateProduto(request.params.id, request.payload);
-        return h.response().code(204);
+        const updated = await produtoBusiness.updateProduto(request.params.id, request.payload);
+
+        // Verifica se algum registro foi atualizado
+        if (updated[0] === 0) {
+            return h.response({ message: 'Produto não encontrado ou nenhuma alteração realizada' }).code(404);
+        }
+
+        return h.response({ message: 'Produto atualizado com sucesso' }).code(200);
     } catch (err) {
         console.error('Erro ao atualizar produto:', err);
         return h.response({ message: 'Erro ao atualizar produto' }).code(500);
