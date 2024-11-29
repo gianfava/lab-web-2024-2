@@ -5,6 +5,7 @@ const baseVersion = '/v1/produtos';
 
 const routes = [
     { method: 'POST', path: baseVersion, options: { handler: produtoController.createProduto, validate: produtoSchema.createProduto } },
+    { method: 'GET', path: baseVersion, options: { handler: produtoController.listProdutos, validate: produtoSchema.listProdutos } },
    
 ];
 
