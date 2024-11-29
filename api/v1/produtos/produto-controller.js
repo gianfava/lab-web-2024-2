@@ -30,7 +30,15 @@ const getProdutoById = async (request, h) => {
     }
 };
 
+const updateProduto = async (request, h) => {
+    try {
+        await produtoBusiness.updateProduto(request.params.id, request.payload);
+        return h.response().code(204);
+    } catch (err) {
+        console.error('Erro ao atualizar produto:', err);
+        return h.response({ message: 'Erro ao atualizar produto' }).code(500);
+    }
+};
 
 
-
-module.exports = { createProduto, listProdutos, getProdutoById};
+module.exports = { createProduto, listProdutos, getProdutoById, updateProduto};
