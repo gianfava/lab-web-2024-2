@@ -1,9 +1,26 @@
 const { Produto } = require('./produto-model');
 
-const criaProduto = async (aluno) => {
-    return await Produto.create(aluno);
+const createProduto = async (produto) => {
+    return await Produto.create(produto);
 };
 
+const updateProduto = async (id, produtoData) => {
+    return await Produto.update(produtoData, { where: { id } });
+};
 
+const deleteProduto = async (id) => {
+    return await Produto.destroy({ where: { id } });
+};
 
-module.exports = { criaProduto };
+const getProdutoById = async (id) => {
+    return await Produto.findByPk(id);
+};
+
+const listProdutos = async (filters) => {
+    const where = {};
+    if (filters.categoria) where.categoria = filters.categoria;
+    if (filters.nome) where.nome = { [Sequelize.Op.like]: `%${filters.nome}%` };
+    return await Produto.findAll({ where });
+};
+
+module.exports = { createProduto, updateProduto, deleteProduto, getProdutoById, listProdutos };
