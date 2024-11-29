@@ -8,7 +8,7 @@ const routes = [
     { method: 'GET', path: baseVersion, options: { handler: produtoController.listProdutos, validate: produtoSchema.listProdutos } },
     { method: 'GET', path: `${baseVersion}/{id}`, options: { handler: produtoController.getProdutoById, validate: produtoSchema.getProdutoById } },
     { method: 'PUT', path: `${baseVersion}/{id}`, options: { handler: produtoController.updateProduto, validate: produtoSchema.updateProduto } },
-
+    { method: 'DELETE', path: `${baseVersion}/{id}`, options: { handler: produtoController.deleteProduto, validate: produtoSchema.deleteProduto } },
 ];
 
 module.exports = routes;

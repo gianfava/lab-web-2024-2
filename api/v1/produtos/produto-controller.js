@@ -40,5 +40,15 @@ const updateProduto = async (request, h) => {
     }
 };
 
+const deleteProduto = async (request, h) => {
+    try {
+        await produtoBusiness.deleteProduto(request.params.id);
+        return h.response().code(204);
+    } catch (err) {
+        console.error('Erro ao deletar produto:', err);
+        return h.response({ message: 'Erro ao deletar produto' }).code(500);
+    }
+};
 
-module.exports = { createProduto, listProdutos, getProdutoById, updateProduto};
+
+module.exports = { createProduto, listProdutos, getProdutoById, updateProduto, deleteProduto};
