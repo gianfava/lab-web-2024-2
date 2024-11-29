@@ -20,6 +20,17 @@ const listProdutos = async (request, h) => {
     }
 };
 
+const getProdutoById = async (request, h) => {
+    try {
+        const produto = await produtoBusiness.getProdutoById(request.params.id);
+        return produto ? h.response(produto).code(200) : h.response().code(404);
+    } catch (err) {
+        console.error('Erro ao buscar produto por ID:', err);
+        return h.response({ message: 'Erro ao buscar produto' }).code(500);
+    }
+};
 
 
-module.exports = { createProduto, listProdutos};
+
+
+module.exports = { createProduto, listProdutos, getProdutoById};
