@@ -87,7 +87,19 @@ https://app.swaggerhub.com/apis-docs/GIANFAVA_2/api-de_produtos/1.0.0
 
 ## Telas do POSTMAN
 
+**Teste POST -  Criar um produto**
+![enter image description here](https://github.com/gianfava/lab-web-2024-2/blob/main/screenshots/01.jpg?raw=true)
 
+**Teste  GET -  Listar produtos por  ID***
+![enter image description here](https://github.com/gianfava/lab-web-2024-2/blob/main/screenshots/02.jpg?raw=true)
+*Sem o ID definido como parametro, são listados TODOS os produtos cadastrados no BD
+
+
+**Teste PUT - Atualizar produto por ID**
+![enter image description here](https://github.com/gianfava/lab-web-2024-2/blob/main/screenshots/03.jpg?raw=true)
+
+**Teste DELETE -  Apagar produto**
+![enter image description here](https://github.com/gianfava/lab-web-2024-2/blob/main/screenshots/04.jpg?raw=true)
 
 ------
 ## Informações Gerais
