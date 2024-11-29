@@ -23,4 +23,6 @@ const listProdutos = async (filters) => {
     return await Produto.findAll({ where });
 };
 
+
+
 module.exports = { createProduto, updateProduto, deleteProduto, getProdutoById, listProdutos };

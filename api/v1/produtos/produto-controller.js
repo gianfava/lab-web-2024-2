@@ -42,8 +42,13 @@ const updateProduto = async (request, h) => {
 
 const deleteProduto = async (request, h) => {
     try {
-        await produtoBusiness.deleteProduto(request.params.id);
-        return h.response().code(204);
+        const deleted = await produtoBusiness.deleteProduto(request.params.id);
+        
+        if (!deleted) {
+            return h.response({ message: 'Produto não encontrado' }).code(404);
+        }
+
+        return h.response({ message: 'Produto excluído com sucesso' }).code(200);
     } catch (err) {
         console.error('Erro ao deletar produto:', err);
         return h.response({ message: 'Erro ao deletar produto' }).code(500);

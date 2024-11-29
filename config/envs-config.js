@@ -9,7 +9,7 @@ const all = {
 
     env: process.env.ENVIRONMENT,
     host: process.env.HOST || '0.0.0.0',
-    port: process.env.PORT || 5000,
+    port: process.env.PORT || 5432,
 
 
     database: {

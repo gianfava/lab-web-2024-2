@@ -20,5 +20,7 @@ sequelize.authenticate()
     .then(() => console.log('Conexão com o banco bem-sucedida.'))
     .catch(err => console.error('Erro ao conectar ao banco:', err));
 
+
+  
     
 module.exports = {sequelize};
