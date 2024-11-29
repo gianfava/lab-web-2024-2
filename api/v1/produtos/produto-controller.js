@@ -10,5 +10,16 @@ const createProduto = async (request, h) => {
     }
 };
 
+const listProdutos = async (request, h) => {
+    try {
+        const produtos = await produtoBusiness.listProdutos(request.query);
+        return h.response(produtos).code(200);
+    } catch (err) {
+        console.error('Erro ao listar produtos:', err);
+        return h.response({ message: 'Erro ao listar produtos' }).code(500);
+    }
+};
 
-module.exports = { createProduto};
+
+
+module.exports = { createProduto, listProdutos};
